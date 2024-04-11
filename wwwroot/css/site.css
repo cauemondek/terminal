@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&display=swap');
+
+* {
+  text-decoration: none;
+  font-family: "DotGothic16";
+  /* font-family: "VT321"; */
+}
+
+body {
+  height: 100%;
+  background-color: #000000;
+  padding: 10px;
+}
+
+p, span, h1, h2, h3, h4, input, label {
+  color: #ffffff;
+}
+
+.welcome {
+  letter-spacing: 5px;
+}
+.welcome h1 {
+  font-size: 60px;
+  flex-direction: column;
+
+  padding: 0;
+  margin: 0;
+}
+
+.animationUnderScore {
+  animation: underScoreLoad 1s infinite steps(2);
+}
+
+@keyframes underScoreLoad {
+  from {
+    visibility: hidden;
+  } to {
+    visibility: visible;
+  }
+}
+
+.loader {
+  /* animation: loader 2s infinite linear; */
+  padding: 0;
+  margin: 0;
+
+  width: max-content;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+}
+.input-container p {
+  width: 500px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.input-container input {
+  background-color: transparent;
+  width: 500px;
+  height: 40px;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  font-size: 25px;
+}
+.input-container h1 {
+  margin-right: 8px;
+  font-size: 30px;
+}
+
+
+
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  } to {
+    transform: rotate(360deg);
+  }
+}

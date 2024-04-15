@@ -5,18 +5,75 @@
 }
 
 <body>
+    <div class="bootSystemA">
+        <img src="~/img/os-iconA.jpg" alt="OS Icon">
+
+        <p>ASP.NET, Github Version</p>
+        <p>Copyright (C) 2024, Cauê Guise Mondek</p>
+
+        <p style="margin: 20px 0;" class="systemBootA-A">Memory Test : <span></span> OK</p>
+
+        <div style="margin-left: 20px;" class="systemBootA-B">
+            <p>Detecting Flash Disk ... <span class="animationUnderScore detectingBoot">__</span>
+            <p>Detecting RAM ... <span class="animationUnderScore detectingBoot">__</span>
+            <p>Detecting Docker ... <span class="animationUnderScore detectingBoot">__</span>
+        </div>
+    </div>
+    <div class="bootSystemB">
+        <img src="~/img/os-iconC.jpg" alt="OS Icon">
+        <table>
+            <tr>
+                <td>CPU Type</td>
+                <td>Krait 400 CPU at 2500 MHz</td>
+            </tr>
+            <tr>
+                <td>Cache Memory</td>
+                <td>1040682K</td>
+            </tr>
+            <tr>
+                <td>Memory Installed</td>
+                <td>1024M DRAM</td>
+            </tr>
+            <tr>
+                <td>Distro</td>
+                <td>Arch Linux</td>
+            </tr>
+            <tr>
+                <td>IP System</td>
+                <td id="ipsystem"></td>
+            </tr>
+        </table>
+
+        <p>PCI device listing</p>
+        <p>Boot OK</p>
+        <hr style="background-color: #fff;">
+        <p class="systemBootB-B">Initialization finished</p>
+        <div class="systemBootB-C">
+            <p>Activation root acess</p>
+            <span class="pipeLoading"></span>
+        </div>
+    </div>
+
     <div class="welcome">
         <h1>Terminal<span class="animationUnderScore">_</span></h1>
-        <p>Use help for more details</p>
+        <p>Use <span style="opacity: 0.6;">--help</span> for more details</p>
     </div>
 
-    <div class="output">
-
-    </div>
+    <img src="~/img/os-icon.gif" alt="" class="osIcon">
+    <div class="output"></div>
 
     <div class="input-container">
     <h1>></h1>
-    <input type="text" id="inputEnter">
+    <input type="text" id="inputEnter" placeholder="Type here...">
     </div>
 </body>
+
+<button id="startSystem" onclick="$('#startSystem').hide()">Start System</button>
+
+<audio id="startSystemSound">
+  <source src="~/sound/system-startup.mp3" type="audio/mp3">
+</audio>
+<audio id="startTerminalSound">
+  <source src="~/sound/terminal-startup.mp3" type="audio/mp3">
+</audio>
 

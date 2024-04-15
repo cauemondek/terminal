@@ -5,31 +5,127 @@
   text-decoration: none;
   font-family: "DotGothic16";
   /* font-family: "VT321"; */
+  margin: 0;
+  bottom: 0;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #4e4e4e;
+  border-radius: 10px;
 }
 
 body {
   height: 100%;
   background-color: #000000;
-  padding: 10px;
+  padding: 40px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-p, span, h1, h2, h3, h4, input, label {
+p, span, h1, h2, h3, h4, input, label, td {
   color: #ffffff;
-}
-
-.welcome {
   letter-spacing: 5px;
 }
-.welcome h1 {
-  font-size: 60px;
-  flex-direction: column;
 
-  padding: 0;
-  margin: 0;
+/* System BOOT 1 */
+
+.bootSystemA img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28%;
+}
+
+.bootSystemA p {
+  font-size: 25px;
+}
+
+#startSystem {
+  position: absolute;
+  transform: translate(50%, -50%);
+
+  top: 50%;
+  right: 50%;
+
+  width: 200px;
+  height: 100px;
+  font-size: 25px;
+
+  cursor: pointer;
+
+  border-radius: 12px;
+}
+#startSystem:hover {
+  background-color: #dddddd;
+}
+
+.bootSystemA, .bootSystemB, .systemBootA-A, .systemBootA-B, .systemBootB-B, .systemBootB-C, .output, .welcome, .input-container, .osIcon {
+  display: none;
+}
+
+.systemBootB-C {
+  align-items: center;
+}
+
+/* SYSTEM BOOT 2 */
+.bootSystemB img {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 40%;
+}
+
+table, th, td {
+  border: 2px solid #fff;
+}
+
+td {
+  padding: 10px;
+  font-size: 25px;
+}
+
+.bootSystemB hr {
+  background-color: #fff;
+  border-radius: 2px;
+  width: 820px;
+  height: 1px;
+  margin: 30px 0;
+}
+.bootSystemB table {
+  margin-bottom: 100px;
+  margin-left: 40px;
+}
+
+.bootSystemB p {
+  font-size: 25px;
+  align-items: center;
+}
+
+
+/* SYSTEM READY */
+.welcome {
+  margin-bottom: 100px;
+}
+.welcome h1 {
+  letter-spacing: 15px;
+  font-size: 80px;
+  flex-direction: column;
+}
+.welcome p {
+  font-size: 20px;
+  flex-direction: column;
 }
 
 .animationUnderScore {
   animation: underScoreLoad 1s infinite steps(2);
+  letter-spacing: 0;
 }
 
 @keyframes underScoreLoad {
@@ -40,45 +136,60 @@ p, span, h1, h2, h3, h4, input, label {
   }
 }
 
-.loader {
-  /* animation: loader 2s infinite linear; */
-  padding: 0;
-  margin: 0;
-
-  width: max-content;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
 .input-container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 600px;
-}
-.input-container p {
-  width: 500px;
-  height: 40px;
-  font-size: 25px;
+  width: 1000px;
 }
 
 .input-container input {
   background-color: transparent;
-  width: 500px;
+  width: 800px;
   height: 40px;
   border: 0;
   border-bottom: 1px solid #fff;
   outline: none;
   font-size: 25px;
 }
+
 .input-container h1 {
   margin-right: 8px;
   font-size: 30px;
 }
 
+.user-send-container {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  margin-bottom: 8px;
+}
 
+.user-send-container p {
+  width: 800px;
+  font-size: 25px;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.user-send-container h1 {
+  margin-right: 8px;
+  font-size: 30px;
+}
+.console-message {
+  width: 800px;
+  font-size: 20px;
+  margin-bottom: 30px;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.pipeLoading {
+  margin-left: 20px;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  animation: loader 1s linear infinite;
+}
 
 @keyframes loader {
   from {
@@ -86,4 +197,11 @@ p, span, h1, h2, h3, h4, input, label {
   } to {
     transform: rotate(360deg);
   }
+}
+
+.osIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
 }

@@ -7,4 +7,6 @@
 - ``CSHTML``
 - ``C#``
 - ``ASP.NET``
-- ``PostgreSQL``
+- ``SQLite``
+- ``Docker``
+- ``jQuery``

@@ -32,7 +32,7 @@ $('#startSystemSound').on('ended', () => {
 function addInOutput(command) {
   const newOutput = $('<div></div>').addClass('user-send-container');
   const arrow = $('<h1>></h1>');
-  const textTyped = $('<p>' + $('#inputEnter').val() + '</p>');
+  const textTyped = $('<p>' + dataInput + '</p>');
 
   newOutput.appendTo(output);
   arrow.appendTo(newOutput);
@@ -43,9 +43,34 @@ function addInOutput(command) {
     .appendTo(output);
 }
 
+let dataInput;
 $(document).on('keypress', e => {
   if (e.keyCode == 13 && input.val() != '') {
-    addInOutput('Comando desconhecido, digite --help');
+    dataInput = input.val();
+
+    let reqFindCommand = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        Call: input.val(),
+      }),
+    };
+
+    fetch('input/search', reqFindCommand)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        addInOutput(data.Output);
+        console.log(eval(data.Execute));
+      })
+      .catch(error => {
+        if (error == 'Error: HTTP error 404') addInOutput('Unknown command, type --help');
+      });
+
     input.val('');
     $(document).scrollTop(10000000000000);
   }
@@ -75,7 +100,7 @@ function bootSystemA() {
   }, 4200);
 
   const textDetectingBoot = document.querySelectorAll('.detectingBoot');
-  textDetectingBoot.forEach((index, number) => {
+  textDetectingBoot.forEach(() => {
     setTimeout(() => {
       $(textDetectingBoot[0]).removeClass('animationUnderScore');
       textDetectingBoot[0].innerHTML = 'OK';

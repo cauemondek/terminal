@@ -64,8 +64,9 @@ $(document).on('keypress', e => {
         return response.json();
       })
       .then(data => {
-        addInOutput(data.Output);
-        console.log(eval(data.Execute));
+        if (data.Output != null) addInOutput(data.Output);
+        eval(data.Execute);
+        
       })
       .catch(error => {
         if (error == 'Error: HTTP error 404') addInOutput('Unknown command, type --help');

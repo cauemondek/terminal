@@ -10,7 +10,7 @@ namespace TerminaldotNET.Models
     {
         public int Id { get; set; }
         public string Call { get; set; }
-        public string Output { get; set; }
+        public string? Output { get; set; }
         public string? Execute { get; set; }
     }
 }
